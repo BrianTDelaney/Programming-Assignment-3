@@ -5,7 +5,19 @@
 using namespace std;
 
 void findMaxSubsequence(map<char, int>& v, const string& A, const string& B){
-
+    auto const n = A.size();
+    auto const m = B.size();
+    vector<vector<int>> M(n + 1, vector<int>(m + 1, 0));
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (A[i - 1] == B[j - 1]) {
+                M[i][j] = M[i - 1][j - 1] + v[A[i - 1]];
+            }
+            else {
+                M[i][j] = max(M[i - 1][j], M[i][j - 1]);
+            }
+        }
+    }
 }
 
 int main() {
