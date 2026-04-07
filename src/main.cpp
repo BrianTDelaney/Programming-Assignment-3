@@ -39,5 +39,18 @@ void findMaxSubsequence(map<char, int>& v, const string& A, const string& B){
 }
 
 int main() {
-
+    int alphaLen;
+    char x;
+    int v;
+    map<char, int> m;
+    cin >> alphaLen;
+    for (int i = 0; i < alphaLen; i++) {
+        cin >> x;
+        cin >> v;
+        m[x] = v;
+    }
+    string A, B;
+    cin >> A;
+    cin >> B;
+    findMaxSubsequence(m, A, B);
 }
