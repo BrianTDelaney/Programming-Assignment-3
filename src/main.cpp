@@ -18,6 +18,24 @@ void findMaxSubsequence(map<char, int>& v, const string& A, const string& B){
             }
         }
     }
+    
+    string s;
+    int i = n;
+    int j = m;
+    while (i > 0 && j > 0) {
+        if (A[i - 1] == B[j - 1]) {
+            s = A[i - 1] + s;
+            i--;
+            j--;
+        }
+        else if (M[i - 1][j] >= M[i][j - 1]) {
+            i--;
+        }
+        else {
+            j--;
+        }
+    }
+    cout << M[n][m] << endl << s << endl;
 }
 
 int main() {
